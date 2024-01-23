@@ -1,4 +1,4 @@
-name: Parkour
+name: VolcaParkour
 version: ${project.version}
 description: ${project.description}
 softdepend: [Vault, PlaceholderAPI, BountifulAPI, Multiverse-Core]

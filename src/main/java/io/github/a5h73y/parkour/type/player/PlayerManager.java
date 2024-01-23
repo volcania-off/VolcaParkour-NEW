@@ -77,6 +77,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -1294,6 +1295,15 @@ public class PlayerManager extends AbstractPluginReceiver implements Initializab
 		restoreInventoryArmor(player, playerConfig);
 		items.forEach(itemStack -> player.getInventory().addItem(itemStack));
 		restoreGameMode(player);
+
+		ItemStack Compass = new ItemStack(Material.COMPASS);
+		ItemMeta meta = Compass.getItemMeta();
+		meta.setDisplayName("§cTéléporteur - Volcania");
+		Compass.setItemMeta(meta);
+
+		player.getInventory().clear(8);
+		player.getInventory().setItem(8, Compass);
+
 	}
 
 	private List<ItemStack> getItemsToRestore(Player player, PlayerConfig playerConfig, boolean finishedCourse) {
