@@ -1298,7 +1298,8 @@ public class PlayerManager extends AbstractPluginReceiver implements Initializab
 
 		ItemStack Compass = new ItemStack(Material.COMPASS);
 		ItemMeta meta = Compass.getItemMeta();
-		meta.setDisplayName("§cTéléporteur - Volcania");
+		meta.setDisplayName(parkour.getServer().getPluginManager().getPlugin("VolcaniaPlugin").getConfig().
+				getString("compass.title").replace("&", "§"));
 		Compass.setItemMeta(meta);
 
 		player.getInventory().clear(8);
